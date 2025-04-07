@@ -1,0 +1,419 @@
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Global Body */
+body {
+    background-image: url('https://i.pinimg.com/originals/55/01/60/5501609ee45d514d1f2c4a63502045e2.gif');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: azure;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Section Styling */
+.first {
+    color: azure;
+    height: 100vh;
+}
+
+/* Header Styling */
+.header {
+    background: midnightblue;
+    opacity: 1;
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Navigation Links */
+.header a {
+    position: relative;
+    display: inline-block;
+    margin: 0 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: lightsteelblue;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.header a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background-color: lightskyblue;
+    transition: width 0.3s ease-in-out;
+}
+
+.header a:hover {
+    color: lightskyblue;
+}
+
+.header a:hover::after {
+    width: 100%;
+}
+
+/* Menu Styling */
+.menu-container {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 1100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: midnightblue;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.menu-icon {
+    font-size: 30px;
+    color: azure;
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.menu-icon:hover {
+    color: lightblue;
+}
+
+.social-icons {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu-container:hover .social-icons {
+    display: flex;
+    animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.social-icons a {
+    font-size: 24px;
+    color: azure;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+    color: lightblue;
+}
+
+/* Flip Box Container */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    max-width: 350px;
+    aspect-ratio: 16 / 9;
+    perspective: 1000px;
+}
+
+/* Flip Box Wrapper */
+.flip-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease-in-out;
+}
+
+.container:hover .flip-box {
+    transform: rotateY(180deg);
+}
+
+/* Front and Back Faces */
+.flip-box-front,
+.flip-box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-image: url('https://media.tenor.com/yzNFALESODQAAAAM/coding-hack.gif');
+    background-size: cover;
+    background-position: center;
+    color: white; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 15px;
+    border: 5px outset steelblue;
+    box-shadow: 5px 5px 10px black;
+    backface-visibility: hidden;
+}
+
+/* Front Face Specific */
+.flip-box-front {
+    color: white;
+    backdrop-filter: none; 
+    background-color: transparent;
+}
+
+.flip-box-front h1 {
+    margin-bottom: 5px;
+    font-size: 28px;
+}
+
+.flip-box-front h2 {
+    margin: 5px 0;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.flip-box-front h3 {
+    margin: 5px 0;
+    font-size: 32px;
+    font-weight: bold;
+    
+}
+
+.flip-box-front h4 {
+    margin: 8px 0 5px;
+    font-size: 16px;
+    font-weight: normal;
+    
+}
+.flip-box-front h1,
+.flip-box-front h2,
+.flip-box-front h3,
+.flip-box-front h4 {
+    color: white
+}
+/* Back Face */
+.flip-box-back {
+    background-color: darkslateblue;
+    color: azure;
+    transform: rotateY(180deg);
+}
+
+.overlay-content {
+    
+    padding: 20px;
+    border-radius: 10px;
+}
+.fade-in-about {
+    animation: fadeInUp 5s ease-in forwards;
+    opacity: 0;
+}
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
+
+/* Back content styles */
+.flip-box-back h2 {
+    margin-bottom: 10px;
+}
+
+.flip-box-back p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.download-link {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 8px 16px;
+    color: azure;
+    background-color: steelblue;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.download-link:hover {
+    background-color: lightblue;
+    color: navy;
+}
+
+/* Roles Text Animation (Character Fade In) */
+.roles {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    flex-shrink: 0;
+}
+
+.pipe {
+    color: lightsteelblue;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.fade-in-text {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.fade-in-text span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-10px);
+    animation: fadeInChar 1s forwards;
+}
+
+.fade-in-text span:nth-child(1) { animation-delay: 0.05s; }
+.fade-in-text span:nth-child(2) { animation-delay: 0.1s; }
+.fade-in-text span:nth-child(3) { animation-delay: 0.15s; }
+.fade-in-text span:nth-child(4) { animation-delay: 0.2s; }
+.fade-in-text span:nth-child(5) { animation-delay: 0.25s; }
+.fade-in-text span:nth-child(6) { animation-delay: 0.3s; }
+.fade-in-text span:nth-child(7) { animation-delay: 0.35s; }
+.fade-in-text span:nth-child(8) { animation-delay: 0.4s; }
+.fade-in-text span:nth-child(9) { animation-delay: 0.45s; }
+.fade-in-text span:nth-child(10) { animation-delay: 0.5s; }
+
+@keyframes fadeInChar {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* Scroll Section */
+.scroll {
+    height: 200vh;
+    background-image: url('https://i.gifer.com/76YS.gif');
+    background-size:auto;
+
+}
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .project-card {
+    position: relative;
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .project-card img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+  }
+  
+  .project-card .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+  }
+  
+  .project-card:hover .overlay {
+    opacity: 1;
+  }
+  
+  .project-card p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    color: lightyellow;
+  }
+
+  .site-footer {
+    background-color: rgba(25, 25, 112, 0.85); /* midnightblue with opacity */
+    color: lightsteelblue;
+    text-align: center;
+    padding: 30px 15px;
+    font-size: 16px;
+    position: relative;
+    z-index: 1000;
+    backdrop-filter: blur(6px); /* adds a nice frosted effect */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4); /* separates from above */
+    border-top: 2px solid steelblue; /* subtle divider */
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .footer-content small {
+    font-size: 14px;
+    color: lightskyblue;
+  }
+  
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .footer-links a {
+    color: lightskyblue;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: white;
+  }
+  
+  
